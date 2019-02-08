@@ -1,6 +1,8 @@
 const autoprefixer = require("autoprefixer");
 const browsersync = require("browser-sync").create();
+const del = require('del');
 const gulp = require('gulp');
+const pug = require('gulp-pug');
 const sass = require('gulp-sass');
 const sourcemaps = require('gulp-sourcemaps');
 const babel = require('gulp-babel');
@@ -9,58 +11,9 @@ const uglifyCss = require('gulp-uglifycss');
 const plumber = require('gulp-plumber');
 const concat = require('gulp-concat');
 const postcss = require('gulp-postcss');
+const reload = browserSync.reload;
 
-
-// var connect = require('gulp-connect');
-// var livereload = require('gulp-livereload');
-// var rigger = require('gulp-rigger');
-// var sourcemaps = require('gulp-sourcemaps');
-
-// var path = require('./path');
-
-// gulp.task('connect', () => {
-// 	connect.server({
-// 		root: 'web',
-// 		livereload: true
-// 	})
-// });
-//
-// gulp.task('html', () => {
-// 	gulp.src(path.src.html)
-// 		.pipe(rigger())
-// 		.pipe(gulp.dest(path.web.html))
-// 		.pipe(connect.reload());
-// });
-//
-// gulp.task('css', () => {
-// 	gulp.src(path.src.css)
-// 		.pipe(stylus({
-// 			use: nib()
-// 		}))
-// 		.pipe(concatCss('style.css'))
-// 		.pipe(gulp.dest(path.web.css))
-// 		.pipe(connect.reload())
-// });
-//
-// gulp.task('js', () => {
-// 	gulp.src(path.src.js)
-// 		.pipe(sourcemaps.init())
-// 		.pipe(babel({
-//             presets: ["es2015"],
-//             plugins: ["transform-object-rest-spread"]
-//         }))
-// 		.pipe(sourcemaps.write())
-// 		.pipe(gulp.dest(path.web.js))
-// 		.pipe(connect.reload())
-// });
-//
-// gulp.task('watch', () => {
-// 	gulp.watch(path.src.html, ['html']);
-// 	gulp.watch(path.src.css, ['css']);
-// 	gulp.watch(path.src.js, ['js']);
-// });
-//
-// gulp.task('default', ['connect', 'html', 'css', 'js', 'watch']);
+const clean = () => del(['../build'], {force:true});
 
 // BrowserSync
 function browserSync(done) {
@@ -80,8 +33,9 @@ function browserSyncReload(done) {
 }
 
 function html() {
-  return gulp.src('../src/templates/*.html')
-    // .pipe(pug())
+  return gulp
+    .src('../src/templates/*.pug')
+    .pipe(pug())
     .pipe(gulp.dest('../build'));
 }
 
@@ -89,14 +43,13 @@ function css() {
   return gulp
     .src('../src/sass/*.sass', {sourcemaps: true})
     .pipe(plumber())
-    // .pipe(sourcemaps.init())
-    // .pipe(postcss([ autoprefixer() ]))
-    // .pipe(sourcemaps.write('.'))
+    .pipe(sourcemaps.init())
     .pipe(sass())
+    .pipe(postcss([ autoprefixer() ]))
     .pipe(uglifyCss())
-    // .pipe(plumber.stop())
-    .pipe(gulp.dest('../build/css', {sourcemaps: true}))
-    .pipe(browsersync.stream());
+    .pipe(sourcemaps.write('.'))
+    .pipe(plumber.stop())
+    .pipe(gulp.dest('../build/css', {sourcemaps: true}));
 }
 
 function js() {
@@ -106,9 +59,9 @@ function js() {
     .pipe(gulp.dest('../build/js', {sourcemaps: true}));
 }
 
-// exports.js = js;
-// exports.css = css;
-// exports.html = html;
-// exports.default = parallel(html, css, js);
+const watch = () => {
+  gulp.watch('../src/templates/*.pug', gulp.series(html, browserSyncReload));
+  gulp.watch('../src/sass/*.sass', gulp.series(css, browserSyncReload));
+};
 
-exports.default = gulp.parallel(css, html, js);
+exports.default = gulp.series(clean, html, css, js, browserSync, watch );
