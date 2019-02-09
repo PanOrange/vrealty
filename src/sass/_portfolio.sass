@@ -1,5 +1,23 @@
 @import "variables"
 
 .portfolio
-  min-height: 800px
-  background-color: #000
+  min-height: 200px
+  background-color: $dark
+  .video-block
+    margin: 0 -20px
+    @media(min-width: $bp-md)
+      margin: 0
+      padding: 40px
+
+.swiper-container
+  width: 100%
+  max-width: 800px
+  height: 480px
+  margin: 0 auto
+  .swiper-button-prev,
+  .swiper-button-next
+    background-image: url('/img/icons/left.svg')
+  .swiper-button-next
+    transform: rotate(180deg)
+  .swiper-pagination-bullet-active
+    background-color: $yellow
