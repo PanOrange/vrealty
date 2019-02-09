@@ -1,0 +1,50 @@
+@import 'variables'
+
+.advantages
+  background-color: $grey
+  .tab-block
+    padding-bottom: 60px
+    .tabs
+      width: 100%
+      margin-bottom: 20px
+      padding: 0 20px
+      display: flex
+      justify-content: space-between
+      @media(min-width: $bp-md)
+        padding: 60px 20px 20px
+      li
+        padding: 4px 4px 10px
+        cursor: pointer
+        border-bottom: 1px solid transparent
+        &.active
+          border-bottom: 2px solid $yellow
+        img
+          display: block
+          width: 40px
+          height: 40px
+          border-radius: 50%
+          background-color: $yellow
+          overflow: hidden
+    .panel-block
+      min-height: 200px
+      @media(min-width: $bp-md)
+        padding: 20px 40px
+      .tab-panel
+        display: none
+        width: 100%
+        max-width: 800px
+        margin: 0 auto
+        &.active
+          display: block
+        h4
+          font-family: $font-primary
+          font-size: 20px
+          font-weight: 600
+          line-height: 1.5
+          color: $dark
+        p
+          font-family: $font-secondary
+          color: $light-grey
+          font-size: 18px
+          font-weight: 500
+          line-height: 1.5

@@ -68,6 +68,7 @@ function img() {
 const watch = () => {
   gulp.watch('../src/templates/*.pug', gulp.series(html, browserSyncReload));
   gulp.watch('../src/sass/*.sass', gulp.series(css, browserSyncReload));
+  gulp.watch('../src/js/*.js', gulp.series(js, browserSyncReload));
 };
 
 exports.default = gulp.series(clean, html, css, js, img, browserSync, watch );
