@@ -59,9 +59,15 @@ function js() {
     .pipe(gulp.dest('../build/js', {sourcemaps: true}));
 }
 
+function img() {
+  return gulp
+    .src('../assets/**/*.svg')
+    .pipe(gulp.dest('../build/img'))
+}
+
 const watch = () => {
   gulp.watch('../src/templates/*.pug', gulp.series(html, browserSyncReload));
   gulp.watch('../src/sass/*.sass', gulp.series(css, browserSyncReload));
 };
 
-exports.default = gulp.series(clean, html, css, js, browserSync, watch );
+exports.default = gulp.series(clean, html, css, js, img, browserSync, watch );

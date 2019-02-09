@@ -15,6 +15,7 @@ ul
 a
   color: black
   text-decoration: none
+  outline: none
 
 .wrapper
   width: 100%
@@ -27,16 +28,18 @@ a
     padding: 0 40px
 
 body
-  font-family: $Mont
+  font-family: $font-primary
   font-size: 12px
 
 .header
+  background-color: $dark
   .header-inner
     display: flex
     align-items: center
     justify-content: space-between
-    padding-top: 20px
-    padding-bottom: 20px
+    min-height: $header-height
+    padding-top: 4px
+    padding-bottom: 4px
   .logo
     padding: 6px 20px
     background: $yellow
@@ -55,9 +58,10 @@ body
       a
         display: block
         padding: 4px
-        font-family: $Open
+        font-family: $font-primary
         //font-weight: bold
         text-transform: uppercase
+        color: $light-grey
         transition: color 0.2s ease-out
         &:hover
           color: $yellow

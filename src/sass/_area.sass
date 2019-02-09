@@ -1,6 +1,37 @@
 @import "variables"
 
+$visual-width: 40%
+
 .area
-  min-height: 600px
-  padding: 100px
-  background-color: $yellow
+  min-height: 200px
+  padding: 100px 40px
+  background-color: $dark
+  @media(min-width: $bp-md)
+    padding: 100px 100px
+  &-list
+    li
+      min-height: 200px
+      display: flex
+
+      .info-block
+        display: flex
+        align-items: center
+        flex-basis: calc(100% - #{$visual-width})
+        font-size: 24px
+        color: $yellow
+
+      .visual-block
+        flex-basis: $visual-width
+        padding: 20px 40px
+        height: 180px
+        img
+          height: 100%
+      &:nth-child(2n + 1)
+        .info-block
+          justify-content: flex-end
+          text-align: right
+      &:nth-child(2n)
+          .visual-block
+            text-align: right
+  
+

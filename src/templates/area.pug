@@ -1,7 +1,30 @@
+- var commercial = 'Коммерческая недвижимость (торговые и бизнес центры, складские комплексы)'
+- var private = 'Жилая недвижимость (квартиры)'
+- var services = 'Сфера обслуживания (отели, рестораны, магазины, SPA салоны, медицинские центры и т.д.)'
+- var architecht = 'Строительство, архитектура и дизайн интерьеров'
+- var other = 'Другое'
+- var areaList = [commercial, private, services, architecht, other]
+
 div(class="area")
     div(class="wrapper")
         ul(class="area-list")
-            li Коммерческая недвижимость (торговые и бизнес центры, складские комплексы).
-            li Жилая недвижимость (квартиры).
-            li Сфера обслуживания (отели, рестораны, магазины, SPA салоны, медицинские центры и т.д.).
-            li Строительство, архитектура и дизайн интерьеров.
+            li
+                div(class='info-block') #{commercial}
+                div(class='visual-block')
+                    img(src='img/icons/oil-plant.svg')
+            li
+                div(class='visual-block')
+                    img(src='img/icons/house.svg')
+                div(class='info-block') #{private}
+            li
+                div(class='info-block') #{services}
+                div(class='visual-block')
+                    img(src='img/icons/restaurant.svg')
+            li
+                div(class='visual-block')
+                    img(src='img/icons/draft.svg')
+                div(class='info-block') #{architecht}
+            li
+                div(class='info-block') #{other}
+                div(class='visual-block')
+                    img(src='img/icons/bank.svg')
