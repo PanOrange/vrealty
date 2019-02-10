@@ -1,0 +1,51 @@
+@import "variables"
+
+.prices
+  background-color: $dark
+  min-height: 200px
+  .prices-wrap
+    margin: 0 auto
+    padding-bottom: 20px
+    width: 100%
+    max-width: 800px
+    h4
+      position: relative
+      margin-top: 0
+      margin-left: auto
+      margin-bottom: 20px
+      padding: 40px 0 10px 20px
+      width: 50%
+      font-size: 18px
+      color: $yellow
+      &:after
+        position: absolute
+        bottom: 0
+        left: 20px
+        display: block
+        height: 2px
+        background-color: $yellow
+        width: 100px
+        content: ''
+    p
+      margin: 0
+      padding: 10px 10px 20px
+      display: flex
+      align-items: center
+      //justify-content: center
+      span
+        font-size: 16px
+        flex-basis: 50%
+        &:first-child
+          text-align: right
+          color: $light-grey
+          letter-spacing: 0.6px
+
+        &:last-child
+          span
+            margin-left: 20px
+            padding: 4px 14px
+            font-weight: bold
+            letter-spacing: 0.8px
+            color: $dark
+            border-radius: 6px
+            background-color: $yellow

@@ -1,0 +1,59 @@
+@import "variables"
+
+.process
+  background-color: $dark-grey
+  .process-block
+    width: 100%
+    max-width: 800px
+    margin: 0 auto
+    padding: 60px 0
+  .process-line
+    position: relative
+    display: flex
+    align-items: center
+    justify-content: space-around
+    &:after
+      content: ''
+      position: absolute
+      display: block
+      height: 6px
+      width: 75%
+      top: 50%
+      left: 12.5%
+      transform: translateY(-3px)
+      background-color: $yellow
+      z-index: 1
+    .bullit
+      display: flex
+      align-items: center
+      justify-content: center
+      width: 24px
+      height: 24px
+      color: $yellow
+      border: 1px solid $yellow
+      border-radius: 50%
+      overflow: hidden
+      background-color: $dark-grey
+      z-index: 2
+  .process-info
+    display: flex
+    justify-content: space-between
+    margin: 40px 0 0
+    .info-block
+      flex-basis: 25%
+      min-height: 100px
+      padding: 20px 10px
+      font-size: 12px
+      line-height: 1.5
+      color: $light-grey
+      border: 1px solid $light-grey
+      @media(min-width: $bp-md)
+        flex-basis: calc(25% - 10px)
+        padding: 30px 20px
+        font-size: 14px
+
+
+
+
+
+
