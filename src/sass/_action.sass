@@ -1,0 +1,68 @@
+@import "variables"
+
+.action
+  background-color: $dark
+  .action-wrapper
+    width: 100%
+    max-width: 600px
+    margin: 0 auto
+    padding: 20px 0
+    @media(min-width: $bp-md)
+      padding: 40px 0
+    h4
+      position: relative
+      margin: 0
+      padding: 20px 0
+      font-size: 18px
+      letter-spacing: 0.6px
+      color: $light-grey
+      text-align: center
+      &:after
+        content: ''
+        position: absolute
+        bottom: 0
+        left: 50%
+        transform: translateX(-20px)
+        width: 40px
+        height: 2px
+        background-color: $yellow
+    p
+      margin: 0
+      padding: 20px 0
+      font-size: 18px
+      letter-spacing: 0.6px
+      color: $light-grey
+      text-align: center
+    button
+      position: relative
+      display: block
+      margin: 20px auto 0
+      padding: 10px 20px
+      min-width: 150px
+      font-size: 14px
+      text-align: center
+      border: 1px solid $yellow
+      background-color: transparent
+      color: $yellow
+      transition: 0.2s ease-out
+      overflow: hidden
+      z-index: 2
+      &:before
+        position: absolute
+        top: 0
+        left: 50%
+        content: ''
+        height: 0%
+        width: 150%
+        background-color: $yellow
+        transition: 0.2s ease-out
+        z-index: -1
+        opacity: 0.5
+        transform: translateY(-50%) translateX(-50%) rotate(90deg)
+      &:hover
+        color: $dark
+        &:before
+          opacity: 1
+          height: 600% !important
+
+

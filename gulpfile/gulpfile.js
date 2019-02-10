@@ -61,7 +61,7 @@ function js() {
 
 function img() {
   return gulp
-    .src('../assets/**/*.svg')
+    .src('../assets/**/*.*')
     .pipe(gulp.dest('../build/img'))
 }
 

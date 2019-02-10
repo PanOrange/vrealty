@@ -1,0 +1,52 @@
+@import "variables"
+
+.contacts
+  background-color: $dark-grey
+  .contacts-wrapper
+    display: flex
+    justify-content: space-between
+    width: 100%
+    max-width: 800px
+    margin: 0 auto
+    padding: 40px 0 40px
+    @media(min-width: $bp-md)
+      padding: 80px 0 80px
+    .map-block
+      flex-basis: calc(100% - 240px)
+      overflow: hidden
+      height: 300px
+      img
+        width: 100%
+        height: 100%
+        object-fit: cover
+
+    .contacts-block
+      flex-basis: 220px
+      h4
+        position: relative
+        margin: 0 0 20px
+        padding: 10px 0
+        font-size: 18px
+        color: $yellow
+        &:after
+          position: absolute
+          bottom: 0
+          left: 0
+          content: ''
+          width: 60px
+          height: 2px
+          background-color: $yellow
+      h5
+        margin: 0
+        padding: 10px 0
+        font-size: 16px
+        font-weight: 500
+        color: $light-grey
+      p
+        margin: 0 0 20px
+        font-size: 14px
+
+        color: $light-grey
+
+
+
