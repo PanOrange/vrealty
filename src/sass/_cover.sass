@@ -3,8 +3,9 @@
 $info-width: 300px
 
 .cover
-  min-height: calc(100vh - #{$header-height})
   background-color: $dark
+  @media(min-width: $bp-md)
+    min-height: calc(100vh - #{$header-height})
   .wrapper
     display: flex
     flex-direction: column
@@ -16,10 +17,12 @@ $info-width: 300px
     flex-direction: column
     align-items: flex-end
     justify-content: flex-end
-    flex-basis: $info-width
-    padding: 10px
+    padding: 20px 0
+    @media(min-width: $bp-xs)
+      padding: 20px 10px
     @media(min-width: $bp-md)
       padding: 20px 30px 0 0
+      flex-basis: $info-width
     h2
       position: relative
       margin: 0 0 30px
@@ -37,9 +40,12 @@ $info-width: 300px
     p
       margin: 0
       text-align: right
-      font-size: 20px
+      font-size: 14px
       color: $light-grey
-
+      @media(min-width: $bp-xs)
+        font-size: 16px
+      @media(min-width: $bp-md)
+        font-size: 20px
 
   &_video
     display: flex
@@ -48,8 +54,8 @@ $info-width: 300px
     font-size: 60px
     color: #fff
     background-color: #000
-    min-height: 400px
-    height: calc(100vh - 120px)
     overflow: hidden
     @media(min-width: $bp-md)
       flex-basis: calc(100% - #{$info-width})
+      min-height: 400px
+      height: calc(100vh - 120px)

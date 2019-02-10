@@ -29,10 +29,12 @@
     p
       margin: 0
       padding: 20px 0
-      font-size: 18px
+      font-size: 14px
       letter-spacing: 0.6px
       color: $light-grey
       text-align: center
+      @media(min-width: $bp-sm)
+        font-size: 18px
     button
       position: relative
       display: block
@@ -64,5 +66,3 @@
         &:before
           opacity: 1
           height: 600% !important
-
-

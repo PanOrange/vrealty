@@ -6,17 +6,37 @@
     .tabs
       width: 100%
       margin-bottom: 20px
-      padding: 0 20px
+      padding: 20px 0
       display: flex
       justify-content: space-between
+      overflow-x: auto
       @media(min-width: $bp-md)
         padding: 60px 20px 20px
       li
-        padding: 4px 4px 10px
+        padding: 4px
         cursor: pointer
         border-bottom: 1px solid transparent
+        transition: 0.2s ease-out
+        @media(min-width: $bp-md)
+          padding: 4px 4px 10px
+        &:hover
+          svg
+            path
+              fill: darken($light-grey, 30%)
         &.active
           border-bottom: 2px solid $yellow
+          svg
+            path
+              fill: $yellow
+        svg
+          width: 24px
+          height: 40px
+          path
+            fill: $light-grey
+            transition: 0.2s ease-out
+          @media(min-width: $bp-md)
+            width: 48px
+            height: 60px
         img
           display: block
           width: 40px
@@ -38,13 +58,22 @@
         h4
           margin: 0 0 10px
           font-family: $font-primary
-          font-size: 20px
+          font-size: 14px
           font-weight: 600
           line-height: 1.5
-          color: $grey
+          color: $yellow
+          @media(min-width: $bp-sm)
+            font-size: 16px
+          @media(min-width: $bp-md)
+            font-size: 20px
+
         p
           font-family: $font-secondary
           color: $light-grey
-          font-size: 18px
+          font-size: 14px
           font-weight: 500
           line-height: 1.5
+          @media(min-width: $bp-sm)
+            font-size: 16px
+          @media(min-width: $bp-md)
+            font-size: 18px

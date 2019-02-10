@@ -5,11 +5,13 @@
   .contacts-wrapper
     display: flex
     justify-content: space-between
+    flex-direction: column-reverse
     width: 100%
     max-width: 800px
     margin: 0 auto
     padding: 40px 0 40px
     @media(min-width: $bp-md)
+      flex-direction: row
       padding: 80px 0 80px
     .map-block
       flex-basis: calc(100% - 240px)
@@ -26,8 +28,10 @@
         position: relative
         margin: 0 0 20px
         padding: 10px 0
-        font-size: 18px
+        font-size: 16px
         color: $yellow
+        @media(min-width: $bp-md)
+          font-size: 18px
         &:after
           position: absolute
           bottom: 0
@@ -39,14 +43,14 @@
       h5
         margin: 0
         padding: 10px 0
-        font-size: 16px
+        font-size: 14px
         font-weight: 500
         color: $light-grey
+        @media(min-width: $bp-md)
+          font-size: 16px
       p
         margin: 0 0 20px
-        font-size: 14px
-
+        font-size: 12px
         color: $light-grey
-
-
-
+        @media(min-width: $bp-md)
+          font-size: 14px

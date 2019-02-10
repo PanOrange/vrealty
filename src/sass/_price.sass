@@ -13,39 +13,53 @@
       margin-top: 0
       margin-left: auto
       margin-bottom: 20px
-      padding: 40px 0 10px 20px
+      padding: 40px 0 10px 8px
       width: 50%
-      font-size: 18px
+      font-size: 14px
       color: $yellow
+      @media(min-width: $bp-sm)
+        padding: 40px 0 10px 20px
+        font-size: 16px
+      @media(min-width: $bp-md)
+        font-size: 18px
       &:after
         position: absolute
         bottom: 0
-        left: 20px
+        left: 8px
         display: block
         height: 2px
         background-color: $yellow
-        width: 100px
+        width: 60px
         content: ''
+        @media(min-width: $bp-sm)
+          width: 100px
+          left: 20px
     p
       margin: 0
-      padding: 10px 10px 20px
+      padding: 10px 0 20px
       display: flex
       align-items: center
-      //justify-content: center
+      @media(min-width: $bp-sm)
+        padding: 10px 10px 20px
       span
-        font-size: 16px
+        font-size: 12px
         flex-basis: 50%
+        @media(min-width: $bp-sm)
+          font-size: 16px
         &:first-child
           text-align: right
           color: $light-grey
           letter-spacing: 0.6px
-
         &:last-child
-          span
-            margin-left: 20px
-            padding: 4px 14px
+          .value
+            margin-left: 8px
+            padding: 4px 8px
             font-weight: bold
             letter-spacing: 0.8px
             color: $dark
             border-radius: 6px
             background-color: $yellow
+            @media(min-width: $bp-sm)
+              margin-left: 20px
+              padding: 4px 14px
+
