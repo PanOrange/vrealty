@@ -27,19 +27,36 @@ function changeActive(items, index) {
   items[index - 1].classList.add('active');
 }
 
-var mySwiper = new Swiper ('.swiper-container', {
+var portfolioSlider = new Swiper ('.portfolio .swiper-container', {
   // Optional parameters
   direction: 'horizontal',
   loop: true,
 
   // If we need pagination
   pagination: {
-    el: '.swiper-pagination',
+    el: '.portfolio .swiper-pagination',
   },
 
   // Navigation arrows
   navigation: {
-    nextEl: '.swiper-button-next',
-    prevEl: '.swiper-button-prev',
+    nextEl: '.portfolio .swiper-button-next',
+    prevEl: '.portfolio .swiper-button-prev',
+  }
+});
+
+var clientsSlider = new Swiper ('.clients .swiper-container', {
+  // Optional parameters
+  direction: 'horizontal',
+  loop: true,
+
+  // If we need pagination
+  pagination: {
+    el: '.clients .swiper-pagination',
+  },
+
+  // Navigation arrows
+  navigation: {
+    nextEl: '.clients .swiper-button-next',
+    prevEl: '.clients .swiper-button-prev',
   }
 });
